@@ -1,7 +1,79 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Automate publishing a project's nuget package during build process.</Description>
+    <AssemblyVersion>1.0.1904.83</AssemblyVersion>
+    <FileVersion>1.0.1904.83</FileVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.2</Version>
+    <Authors>Simpler Software</Authors>
+    <Company>Simpler Software</Company>
+    <Product>NuGet Publish MSBuild target</Product>
+    <Title>NuGet Publish MSBuild target</Title>
+    <Copyright>Copyright © Simpler Software 2019</Copyright>
+    <PackageTags>nuget;publish;target;msbuild</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <UpdatePackageVersion>True</UpdatePackageVersion>
+    <PackageVersionSettings>AssemblyVersion.None.Beta</PackageVersionSettings>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <UpdatePackageVersion>True</UpdatePackageVersion>
+    <PackageVersionSettings>AssemblyVersion.None.None</PackageVersionSettings>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="SS.NuGet.Publish.props" />
+    <None Remove="SS.NuGet.Publish.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="SS.NuGet.Publish.props">
+      <PackagePath>build\</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="SS.NuGet.Publish.targets">
+      <Pack>true</Pack>
+      <PackagePath>build\</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SS.NuGet.Publish.VisualStudio\SS.NuGet.Publish.VisualStudio.csproj" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <_PackageFiles Include="$(OutputPath)\SS.NuGet.Publish.VisualStudio.exe">
+      <BuildAction>None</BuildAction>
+      <PackagePath>tools</PackagePath>
+    </_PackageFiles>
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">4.9.4</NuGetPublishVersion>
+    <NuGetPublishPath Condition="'$(NuGetPublishPath)' == ''">$(UserProfile)\.nuget\$(NuGetPublishVersion)\</NuGetPublishPath>
+  </PropertyGroup>
+  <Target Name="PublishPack" AfterTargets="Pack">
+    <DownloadFile Condition="!Exists('$(NuGetPublishPath)nuget.exe')" SourceUrl="https://dist.nuget.org/win-x86-commandline/v$(NuGetPublishVersion)/nuget.exe" DestinationFolder="$(NuGetPublishPath)" />
+    <Exec Command="$(NuGetPublishPath)nuget.exe add &quot;$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg&quot; -source D:\References\Packages" />
+  </Target>
 
 </Project>

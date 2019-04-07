@@ -1,0 +1,6 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <CfgPropertyPagesGuidsAddCSharp>{AA790F50-5208-41F5-89B2-D3733E12BE1D}</CfgPropertyPagesGuidsAddCSharp>
+    <NuGetPublishLocation></NuGetPublishLocation>
+  </PropertyGroup>
+</Project>

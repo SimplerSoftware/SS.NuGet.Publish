@@ -1,0 +1,14 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <CfgPropertyPagesGuidsAddCSharp>{AA790F50-5208-41F5-89B2-D3733E12BE1D}</CfgPropertyPagesGuidsAddCSharp>
+    <NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">4.9.4</NuGetPublishVersion>
+    <NuGetPublishPath Condition="'$(NuGetPublishPath)' == ''">$(UserProfile)\.nuget\$(NuGetPublishVersion)\</NuGetPublishPath>
+    <NuGetPublishCmd Condition="'$(NuGetPublishType)' != 'remote'">add</NuGetPublishCmd>
+    <NuGetPublishCmd Condition="'$(NuGetPublishType)' == 'remote'">push</NuGetPublishCmd>
+  </PropertyGroup>
+  <Target Name="PublishPack" AfterTargets="Pack">
+    <DownloadFile Condition="!Exists('$(NuGetPublishPath)nuget.exe')" SourceUrl="https://dist.nuget.org/win-x86-commandline/v$(NuGetPublishVersion)/nuget.exe" DestinationFolder="$(NuGetPublishPath)" />
+    <Exec Command="&quot;$(NuGetPublishPath)nuget.exe&quot; $(NuGetPublishCmd) &quot;$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg&quot; -Source &quot;$(NuGetPublishLocation.TrimEnd('\'))&quot;" Condition="'$(NuGetPublishLocation)' != ''" />
+    <Warning Text="Skipping NuGet publish, NuGetPublishLocation is not set in project file." Condition="'$(NuGetPublishLocation)' == ''" />
+  </Target>
+</Project>
