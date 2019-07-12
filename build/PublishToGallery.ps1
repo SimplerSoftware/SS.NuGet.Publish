@@ -6,9 +6,9 @@ param(
 	$Module
 )
 
-if (!$ApiKey -and (Test-Path '..\.Nuget.key')) {
+if (!$ApiKey -and (Test-Path "$PSScriptRoot\..\..\.Nuget.key")) {
 	# For local testing/publishing
-	$ApiKey = (Get-Content -Raw '..\..\.Nuget.key')
+	$ApiKey = (Get-Content -Raw "$PSScriptRoot\..\..\.Nuget.key")
 }
 
 if ($ApiKey){

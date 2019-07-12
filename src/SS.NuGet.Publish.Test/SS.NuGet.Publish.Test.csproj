@@ -42,7 +42,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SS.NuGet.Publish" Version="1.0.1" />
+    <ProjectReference Include="..\SS.NuGet.Publish\SS.NuGet.Publish.csproj" />
   </ItemGroup>
 
 </Project>
