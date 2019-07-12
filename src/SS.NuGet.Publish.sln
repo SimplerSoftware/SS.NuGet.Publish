@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.539
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SS.NuGet.Publish", "SS.NuGet.Publish\SS.NuGet.Publish.csproj", "{6AF4B709-5099-456F-84B4-AA24EAA847B1}"
 EndProject
@@ -10,6 +10,19 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SS.NuGet.Publish.VisualStudio", "SS.NuGet.Publish.VisualStudio\SS.NuGet.Publish.VisualStudio.csproj", "{1CBA1375-2301-480A-8841-6891889EA8B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SS.NuGet.Publish.VisualStudio.AddIn", "SS.NuGet.Publish.VisualStudio.AddIn\SS.NuGet.Publish.VisualStudio.AddIn.csproj", "{78F35082-367D-4378-828A-1937E0274A7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8D4C68B6-A189-4148-85FA-4BAA2B75371C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{83CE8CD1-8372-4E24-AA5A-8995F6C515CB}"
+	ProjectSection(SolutionItems) = preProject
+		..\ReadMe.md = ..\ReadMe.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{DD2EC1CA-DA44-40EE-9C8E-F99CC27EABF9}"
+	ProjectSection(SolutionItems) = preProject
+		..\build\PublishToGallery.ps1 = ..\build\PublishToGallery.ps1
+		..\build\Update-ModuleManifest.ps1 = ..\build\Update-ModuleManifest.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +49,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6AF4B709-5099-456F-84B4-AA24EAA847B1} = {8D4C68B6-A189-4148-85FA-4BAA2B75371C}
+		{33D444C6-0B38-4DF5-A09E-102467154CB8} = {8D4C68B6-A189-4148-85FA-4BAA2B75371C}
+		{1CBA1375-2301-480A-8841-6891889EA8B6} = {8D4C68B6-A189-4148-85FA-4BAA2B75371C}
+		{78F35082-367D-4378-828A-1937E0274A7C} = {8D4C68B6-A189-4148-85FA-4BAA2B75371C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {582B6967-0DF2-4969-AAE3-954F1FFE4271}
