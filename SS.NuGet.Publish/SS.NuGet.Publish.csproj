@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Automate publishing a project's nuget package during build process.</Description>
-    <AssemblyVersion>1.0.1904.83</AssemblyVersion>
-    <FileVersion>1.0.1904.83</FileVersion>
+    <AssemblyVersion>1.0.1904.88</AssemblyVersion>
+    <FileVersion>1.0.1904.88</FileVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.2</Version>
+    <Version>1.0.2-beta-04</Version>
     <Authors>Simpler Software</Authors>
     <Company>Simpler Software</Company>
     <Product>NuGet Publish MSBuild target</Product>
@@ -48,12 +48,12 @@
 
   <ItemGroup>
     <Content Include="SS.NuGet.Publish.props">
-      <PackagePath>build\</PackagePath>
+      <PackagePath>build\;buildCrossTargeting\</PackagePath>
       <Pack>true</Pack>
     </Content>
     <Content Include="SS.NuGet.Publish.targets">
       <Pack>true</Pack>
-      <PackagePath>build\</PackagePath>
+      <PackagePath>build\;buildCrossTargeting\</PackagePath>
     </Content>
   </ItemGroup>
 
@@ -70,6 +70,7 @@
   <PropertyGroup>
     <NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">4.9.4</NuGetPublishVersion>
     <NuGetPublishPath Condition="'$(NuGetPublishPath)' == ''">$(UserProfile)\.nuget\$(NuGetPublishVersion)\</NuGetPublishPath>
+    <PackageIconUrl>https://raw.githubusercontent.com/NuGet/Media/master/Images/MainLogo/256x256/nuget_256.png</PackageIconUrl>
   </PropertyGroup>
   <Target Name="PublishPack" AfterTargets="Pack">
     <DownloadFile Condition="!Exists('$(NuGetPublishPath)nuget.exe')" SourceUrl="https://dist.nuget.org/win-x86-commandline/v$(NuGetPublishVersion)/nuget.exe" DestinationFolder="$(NuGetPublishPath)" />
