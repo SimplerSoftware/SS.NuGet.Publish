@@ -39,6 +39,7 @@
     <PackageVersionSettings>AssemblyVersion.None.None</PackageVersionSettings>
     <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
     <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <NoWarn>1701;1702;NU1201</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
