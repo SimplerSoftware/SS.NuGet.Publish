@@ -13,6 +13,7 @@
     <Title>NuGet Publish MSBuild target</Title>
     <Copyright>Copyright © Simpler Software 2019</Copyright>
     <PackageTags>nuget;publish;target;msbuild</PackageTags>
+    <PackageIconUrl>https://raw.githubusercontent.com/NuGet/Media/master/Images/MainLogo/256x256/nuget_256.png</PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
@@ -27,6 +28,7 @@
     <PackageVersionSettings>AssemblyVersion.None.Beta</PackageVersionSettings>
     <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
     <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <NuGetPublishLocation>D:\References\Packages</NuGetPublishLocation>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -39,7 +41,7 @@
     <PackageVersionSettings>AssemblyVersion.None.None</PackageVersionSettings>
     <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
     <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-    <NoWarn>1701;1702;NU1201</NoWarn>
+    <NoWarn>1701;1702</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -67,11 +69,13 @@
   <PropertyGroup>
     <NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">4.9.4</NuGetPublishVersion>
     <NuGetPublishPath Condition="'$(NuGetPublishPath)' == ''">$(UserProfile)\.nuget\$(NuGetPublishVersion)\</NuGetPublishPath>
-    <PackageIconUrl>https://raw.githubusercontent.com/NuGet/Media/master/Images/MainLogo/256x256/nuget_256.png</PackageIconUrl>
+    <NuGetPublishCmd Condition="'$(NuGetPublishType)' != 'remote'">add</NuGetPublishCmd>
+    <NuGetPublishCmd Condition="'$(NuGetPublishType)' == 'remote'">push</NuGetPublishCmd>
   </PropertyGroup>
   <Target Name="PublishPack" AfterTargets="Pack">
-    <DownloadFile Condition="!Exists('$(NuGetPublishPath)nuget.exe')" SourceUrl="https://dist.nuget.org/win-x86-commandline/v$(NuGetPublishVersion)/nuget.exe" DestinationFolder="$(NuGetPublishPath)" />
-    <Exec Command="$(NuGetPublishPath)nuget.exe add &quot;$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg&quot; -source D:\References\Packages" />
+    <DownloadFile Condition="!Exists('$(NuGetPublishPath)nuget.exe') AND '$(NuGetPublishLocation)' != ''" SourceUrl="https://dist.nuget.org/win-x86-commandline/v$(NuGetPublishVersion)/nuget.exe" DestinationFolder="$(NuGetPublishPath)" />
+    <Exec Command="&quot;$(NuGetPublishPath)nuget.exe&quot; $(NuGetPublishCmd) &quot;$(PackageOutputAbsolutePath)$(PackageId).$(PackageVersion).nupkg&quot; -Source &quot;$(NuGetPublishLocation.TrimEnd('\'))&quot;" Condition="'$(NuGetPublishLocation)' != ''" />
+    <Warning Text="Skipping NuGet publish, NuGetPublishLocation is not set in project file." Condition="'$(NuGetPublishLocation)' == ''" />
   </Target>
 
 </Project>
