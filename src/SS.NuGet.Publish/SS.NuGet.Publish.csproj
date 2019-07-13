@@ -6,7 +6,7 @@
     <AssemblyVersion>1.0.1904.88</AssemblyVersion>
     <FileVersion>1.0.1904.88</FileVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.2-beta-04</Version>
+    <Version>1.0.2</Version>
     <Authors>Simpler Software</Authors>
     <Company>Simpler Software</Company>
     <Product>NuGet Publish MSBuild target</Product>
