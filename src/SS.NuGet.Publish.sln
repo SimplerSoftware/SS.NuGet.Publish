@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SS.NuGet.Publish", "SS.NuGet.Publish\SS.NuGet.Publish.csproj", "{6AF4B709-5099-456F-84B4-AA24EAA847B1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1CBA1375-2301-480A-8841-6891889EA8B6} = {1CBA1375-2301-480A-8841-6891889EA8B6}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SS.NuGet.Publish.Test", "SS.NuGet.Publish.Test\SS.NuGet.Publish.Test.csproj", "{33D444C6-0B38-4DF5-A09E-102467154CB8}"
 EndProject

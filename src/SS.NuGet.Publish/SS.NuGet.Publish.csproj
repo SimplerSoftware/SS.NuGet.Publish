@@ -45,6 +45,7 @@
   <ItemGroup>
     <None Remove="SS.NuGet.Publish.props" />
     <None Remove="SS.NuGet.Publish.targets" />
+    <None Remove="tools\SS.NuGet.Publish.VisualStudio.exe" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,18 +57,13 @@
       <Pack>true</Pack>
       <PackagePath>build\;buildCrossTargeting\</PackagePath>
     </Content>
+    <Content Include="tools\SS.NuGet.Publish.VisualStudio.exe">
+      <Pack>true</Pack>
+      <PackagePath>tools\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SS.NuGet.Publish.VisualStudio\SS.NuGet.Publish.VisualStudio.csproj" PrivateAssets="all" />
-  </ItemGroup>
-  <ItemGroup>
-    <_PackageFiles Include="$(OutputPath)\SS.NuGet.Publish.VisualStudio.exe">
-      <BuildAction>None</BuildAction>
-      <PackagePath>tools</PackagePath>
-    </_PackageFiles>
-  </ItemGroup>
-  
+ 
   <PropertyGroup>
     <NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">4.9.4</NuGetPublishVersion>
     <NuGetPublishPath Condition="'$(NuGetPublishPath)' == ''">$(UserProfile)\.nuget\$(NuGetPublishVersion)\</NuGetPublishPath>

@@ -80,4 +80,7 @@
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y "$(TargetPath)" "$(SolutionDir)SS.NuGet.Publish\tools\"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
