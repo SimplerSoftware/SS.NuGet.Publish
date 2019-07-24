@@ -1,6 +1,8 @@
 # SS.NuGet.Publish
 
-Automate publishing a project's NuGet package during build process.
+Automate publishing a project's NuGet package during build process.  
+
+[![Build status](https://ci.appveyor.com/api/projects/status/59u4d4pxlk4o4fhi/branch/master?svg=true)](https://ci.appveyor.com/project/SimplerSoftware/ss-nuget-publish/branch/master)
 
 ## Usage
 
