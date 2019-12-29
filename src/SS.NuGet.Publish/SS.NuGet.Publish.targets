@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <CfgPropertyPagesGuidsAddCSharp>{AA790F50-5208-41F5-89B2-D3733E12BE1D}</CfgPropertyPagesGuidsAddCSharp>
-    <NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">4.9.4</NuGetPublishVersion>
+    <NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">5.4.0</NuGetPublishVersion>
     <NuGetPublishPath Condition="'$(NuGetPublishPath)' == ''">$(UserProfile)\.nuget\$(NuGetPublishVersion)\</NuGetPublishPath>
     <NuGetPublishCmd Condition="'$(NuGetPublishType)' != 'remote'">add</NuGetPublishCmd>
     <NuGetPublishCmd Condition="'$(NuGetPublishType)' == 'remote'">push</NuGetPublishCmd>
