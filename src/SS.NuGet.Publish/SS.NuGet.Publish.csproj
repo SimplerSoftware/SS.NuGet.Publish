@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Automate publishing a project's nuget package during build process.</Description>
-    <AssemblyVersion>1.0.1904.88</AssemblyVersion>
-    <FileVersion>1.0.1904.88</FileVersion>
+    <AssemblyVersion>1.0.1912.88</AssemblyVersion>
+    <FileVersion>1.0.1912.88</FileVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.3-beta-02</Version>
+    <Version>1.0.1912-beta-03</Version>
     <Authors>Simpler Software</Authors>
     <Company>Simpler Software</Company>
     <Product>NuGet Publish MSBuild target</Product>
@@ -17,6 +17,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <developmentDependency>true</developmentDependency>
+    <RepositoryUrl>https://github.com/SimplerSoftware/SS.NuGet.Publish</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageProjectUrl>https://github.com/SimplerSoftware/SS.NuGet.Publish</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
