@@ -10,7 +10,7 @@ To use the package, you need to add the [SS.NuGet.Publish](https://www.nuget.org
 
 #### Project file properties
 * **NuGetPublishVersion** *(Optional)*
-  - Version of Nuget.exe to use. Defaults to 5.4.0
+  - Version of Nuget.exe to use. Defaults to 5.9.1
 * **NuGetPublishPath** *(Optional)*
   - Path to cache the Nuget.exe locally. Defaults to *%UserProfile%\\.nuget\\{NuGetPublishVersion}\\*
 * **NuGetPublishType** *(Optional)*
