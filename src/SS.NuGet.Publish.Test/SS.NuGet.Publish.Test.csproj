@@ -13,7 +13,7 @@
     <AssemblyVersion>1.0.2311.01</AssemblyVersion>
     <FileVersion>1.0.2311.01</FileVersion>
     <CfgPropertyPagesGuidsAddCSharp>{AA790F50-5208-41F5-89B2-D3733E12BE1D}</CfgPropertyPagesGuidsAddCSharp>
-    <Version>1.0.0-beta-01</Version>
+    <Version>1.0.0-beta-02</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

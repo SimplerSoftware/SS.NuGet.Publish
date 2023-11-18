@@ -4,8 +4,8 @@
 		<NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">6.8.0</NuGetPublishVersion>
 		<NuGetPublishPath Condition="'$(NuGetPublishPath)' == ''">$(UserProfile)\.nuget\$(NuGetPublishVersion)\</NuGetPublishPath>
 
-		<NuGetPublishCmd Condition="'$(NuGetPublishType)' == '' AND '$(NuGetPublishLocation.SubString(0, 4))' != 'http'">add</NuGetPublishCmd>
-		<NuGetPublishCmd Condition="'$(NuGetPublishType)' == '' AND '$(NuGetPublishLocation.SubString(0, 4))' == 'http'">push</NuGetPublishCmd>
+		<NuGetPublishCmd Condition="'$(NuGetPublishType)' == '' AND $(NuGetPublishLocation.Length) >= 4 AND '$(NuGetPublishLocation.SubString(0, 4))' != 'http'">add</NuGetPublishCmd>
+		<NuGetPublishCmd Condition="'$(NuGetPublishType)' == '' AND $(NuGetPublishLocation.Length) >= 4 AND '$(NuGetPublishLocation.SubString(0, 4))' == 'http'">push</NuGetPublishCmd>
 		<NuGetPublishCmd Condition="'$(NuGetPublishType)' != '' AND '$(NuGetPublishType)' != 'remote'">add</NuGetPublishCmd>
 		<NuGetPublishCmd Condition="'$(NuGetPublishType)' != '' AND '$(NuGetPublishType)' == 'remote'">push</NuGetPublishCmd>
 

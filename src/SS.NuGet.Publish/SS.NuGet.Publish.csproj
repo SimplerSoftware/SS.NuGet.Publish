@@ -3,10 +3,10 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Description>Automate publishing a project's nuget package during build process.</Description>
-		<AssemblyVersion>1.0.2311.01</AssemblyVersion>
-		<FileVersion>1.0.2311.01</FileVersion>
+		<AssemblyVersion>1.0.2311.02</AssemblyVersion>
+		<FileVersion>1.0.2311.20</FileVersion>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>1.0.2311-beta-01</Version>
+		<Version>1.0.2311-beta-02</Version>
 		<Authors>Simpler Software</Authors>
 		<Company>Simpler Software</Company>
 		<Product>NuGet Publish MSBuild target</Product>
@@ -86,9 +86,9 @@
 	<PropertyGroup>
 		<NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">6.8.0</NuGetPublishVersion>
 		<NuGetPublishPath Condition="'$(NuGetPublishPath)' == ''">$(UserProfile)\.nuget\$(NuGetPublishVersion)\</NuGetPublishPath>
-		
-		<NuGetPublishCmd Condition="'$(NuGetPublishType)' == '' AND '$(NuGetPublishLocation.SubString(0, 4))' != 'http'">add</NuGetPublishCmd>
-		<NuGetPublishCmd Condition="'$(NuGetPublishType)' == '' AND '$(NuGetPublishLocation.SubString(0, 4))' == 'http'">push</NuGetPublishCmd>
+
+		<NuGetPublishCmd Condition="'$(NuGetPublishType)' == '' AND $(NuGetPublishLocation.Length) >= 4 AND '$(NuGetPublishLocation.SubString(0, 4))' != 'http'">add</NuGetPublishCmd>
+		<NuGetPublishCmd Condition="'$(NuGetPublishType)' == '' AND $(NuGetPublishLocation.Length) >= 4 AND '$(NuGetPublishLocation.SubString(0, 4))' == 'http'">push</NuGetPublishCmd>
 		<NuGetPublishCmd Condition="'$(NuGetPublishType)' != '' AND '$(NuGetPublishType)' != 'remote'">add</NuGetPublishCmd>
 		<NuGetPublishCmd Condition="'$(NuGetPublishType)' != '' AND '$(NuGetPublishType)' == 'remote'">push</NuGetPublishCmd>
 
