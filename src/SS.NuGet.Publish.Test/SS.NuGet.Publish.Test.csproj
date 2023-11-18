@@ -10,14 +10,14 @@
     <PackageTags>nuget;publish;target;msbuild</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>This is nothing more than a test for the nuget package SS.NuGet.Publish</Description>
-    <AssemblyVersion>1.0.1904.11</AssemblyVersion>
-    <FileVersion>1.0.1904.11</FileVersion>
+    <AssemblyVersion>1.0.2311.01</AssemblyVersion>
+    <FileVersion>1.0.2311.01</FileVersion>
     <CfgPropertyPagesGuidsAddCSharp>{AA790F50-5208-41F5-89B2-D3733E12BE1D}</CfgPropertyPagesGuidsAddCSharp>
     <Version>1.0.0-beta-01</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <NuGetPublishLocation>D:\References\Packages</NuGetPublishLocation>
+    <NuGetPublishLocation>C:\Packages</NuGetPublishLocation>
     <ShouldCreateLogs>True</ShouldCreateLogs>
     <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
     <UpdateAssemblyVersion>False</UpdateAssemblyVersion>

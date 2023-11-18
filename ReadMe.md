@@ -10,13 +10,15 @@ To use the package, you need to add the [SS.NuGet.Publish](https://www.nuget.org
 
 #### Project file properties
 * **NuGetPublishVersion** *(Optional)*
-  - Version of Nuget.exe to use. Defaults to 5.4.0
+  - Version of Nuget.exe to use. Defaults to 6.8.0
 * **NuGetPublishPath** *(Optional)*
   - Path to cache the Nuget.exe locally. Defaults to *%UserProfile%\\.nuget\\{NuGetPublishVersion}\\*
 * **NuGetPublishType** *(Optional)*
-  - Either *remote* or *local* Defaults to local
+  - Either *remote* or *local*. Will try to auto detect if NuGetPublishLocation is a url (begins with http), defaults to local if NuGetPublishLocation is not a url.
 * **NuGetPublishLocation**
   - Valid URL or path to publish the NuGet package to
+* **NuGetPublishSkipDuplicate**
+  - Set to true to add the `-SkipDuplicate` command line option for nuget push command.
 
 ## How it works
 

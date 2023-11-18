@@ -1,92 +1,105 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Description>Automate publishing a project's nuget package during build process.</Description>
-    <AssemblyVersion>1.0.1912.88</AssemblyVersion>
-    <FileVersion>1.0.1912.88</FileVersion>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.1912-beta-03</Version>
-    <Authors>Simpler Software</Authors>
-    <Company>Simpler Software</Company>
-    <Product>NuGet Publish MSBuild target</Product>
-    <Title>NuGet Publish MSBuild target</Title>
-    <Copyright>Copyright © Simpler Software 2019</Copyright>
-    <PackageTags>nuget;publish;target;msbuild</PackageTags>
-    <PackageIconUrl>https://raw.githubusercontent.com/NuGet/Media/master/Images/MainLogo/256x256/nuget_256.png</PackageIconUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <IncludeBuildOutput>false</IncludeBuildOutput>
-    <developmentDependency>true</developmentDependency>
-    <RepositoryUrl>https://github.com/SimplerSoftware/SS.NuGet.Publish</RepositoryUrl>
-    <RepositoryType>GIT</RepositoryType>
-    <PackageProjectUrl>https://github.com/SimplerSoftware/SS.NuGet.Publish</PackageProjectUrl>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Description>Automate publishing a project's nuget package during build process.</Description>
+		<AssemblyVersion>1.0.2311.01</AssemblyVersion>
+		<FileVersion>1.0.2311.01</FileVersion>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Version>1.0.2311-beta-01</Version>
+		<Authors>Simpler Software</Authors>
+		<Company>Simpler Software</Company>
+		<Product>NuGet Publish MSBuild target</Product>
+		<Title>NuGet Publish MSBuild target</Title>
+		<Copyright>Copyright © Simpler Software 2019</Copyright>
+		<PackageTags>nuget;publish;target;msbuild</PackageTags>
+		<PackageIcon>nuget_256.png</PackageIcon>
+		<PackageIconUrl>https://raw.githubusercontent.com/NuGet/Media/master/Images/MainLogo/256x256/nuget_256.png</PackageIconUrl>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<developmentDependency>true</developmentDependency>
+		<RepositoryUrl>https://github.com/SimplerSoftware/SS.NuGet.Publish</RepositoryUrl>
+		<RepositoryType>GIT</RepositoryType>
+		<PackageProjectUrl>https://github.com/SimplerSoftware/SS.NuGet.Publish</PackageProjectUrl>
+		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <ShouldCreateLogs>True</ShouldCreateLogs>
-    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
-    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
-    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
-    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-    <UpdatePackageVersion>True</UpdatePackageVersion>
-    <PackageVersionSettings>AssemblyVersion.None.Beta</PackageVersionSettings>
-    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-    <NuGetPublishLocation>D:\References\Packages</NuGetPublishLocation>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<ShouldCreateLogs>True</ShouldCreateLogs>
+		<AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+		<UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+		<UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+		<UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+		<UpdatePackageVersion>True</UpdatePackageVersion>
+		<PackageVersionSettings>AssemblyVersion.None.Beta</PackageVersionSettings>
+		<AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+		<InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <ShouldCreateLogs>True</ShouldCreateLogs>
-    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
-    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
-    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
-    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-    <UpdatePackageVersion>True</UpdatePackageVersion>
-    <PackageVersionSettings>AssemblyVersion.None.None</PackageVersionSettings>
-    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-    <NoWarn>1701;1702</NoWarn>
-  </PropertyGroup>
+	<PropertyGroup>
+		<NuGetPublishLocation>C:\Packages</NuGetPublishLocation>
+		<NuGetPublishSkipDuplicate>true</NuGetPublishSkipDuplicate>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="SS.NuGet.Publish.props" />
-    <None Remove="SS.NuGet.Publish.targets" />
-    <None Remove="tools\SS.NuGet.Publish.VisualStudio.exe" />
-  </ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<ShouldCreateLogs>True</ShouldCreateLogs>
+		<AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+		<UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+		<UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+		<UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+		<UpdatePackageVersion>True</UpdatePackageVersion>
+		<PackageVersionSettings>AssemblyVersion.None.None</PackageVersionSettings>
+		<AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+		<InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+		<NoWarn>1701;1702</NoWarn>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="SS.NuGet.Publish.props">
-      <PackagePath>build\;buildCrossTargeting\</PackagePath>
-      <Pack>true</Pack>
-    </Content>
-    <Content Include="SS.NuGet.Publish.targets">
-      <Pack>true</Pack>
-      <PackagePath>build\;buildCrossTargeting\</PackagePath>
-    </Content>
-    <Content Include="tools\SS.NuGet.Publish.VisualStudio.exe">
-      <Pack>true</Pack>
-      <PackagePath>tools\</PackagePath>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="SS.NuGet.Publish.props" />
+		<None Remove="SS.NuGet.Publish.targets" />
+		<None Remove="tools\SS.NuGet.Publish.VisualStudio.exe" />
+		<None Include="..\..\ReadMe.md" Link="ReadMe.md" Pack="true" PackagePath="\" />
+		<None Include="nuget_256.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.7">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
- 
-  <PropertyGroup>
-    <NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">5.4.0</NuGetPublishVersion>
-    <NuGetPublishPath Condition="'$(NuGetPublishPath)' == ''">$(UserProfile)\.nuget\$(NuGetPublishVersion)\</NuGetPublishPath>
-    <NuGetPublishCmd Condition="'$(NuGetPublishType)' != 'remote'">add</NuGetPublishCmd>
-    <NuGetPublishCmd Condition="'$(NuGetPublishType)' == 'remote'">push</NuGetPublishCmd>
-  </PropertyGroup>
-  <Target Name="PublishPack" AfterTargets="Pack">
-    <DownloadFile Condition="!Exists('$(NuGetPublishPath)nuget.exe') AND '$(NuGetPublishLocation)' != ''" SourceUrl="https://dist.nuget.org/win-x86-commandline/v$(NuGetPublishVersion)/nuget.exe" DestinationFolder="$(NuGetPublishPath)" />
-    <Exec Command="&quot;$(NuGetPublishPath)nuget.exe&quot; $(NuGetPublishCmd) &quot;$(PackageOutputAbsolutePath)$(PackageId).$(PackageVersion).nupkg&quot; -Source &quot;$(NuGetPublishLocation.TrimEnd('\'))&quot;" Condition="'$(NuGetPublishLocation)' != ''" />
-    <Warning Text="Skipping NuGet publish, NuGetPublishLocation is not set in project file." Condition="'$(NuGetPublishLocation)' == ''" />
-  </Target>
+	<ItemGroup>
+		<Content Include="SS.NuGet.Publish.props">
+			<PackagePath>build\;buildCrossTargeting\</PackagePath>
+			<Pack>true</Pack>
+		</Content>
+		<Content Include="SS.NuGet.Publish.targets">
+			<Pack>true</Pack>
+			<PackagePath>build\;buildCrossTargeting\</PackagePath>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.7">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<!--<Import Project="SS.NuGet.Publish.targets" />-->
+
+	
+	<PropertyGroup>
+		<NuGetPublishVersion Condition="'$(NuGetPublishVersion)' == ''">6.8.0</NuGetPublishVersion>
+		<NuGetPublishPath Condition="'$(NuGetPublishPath)' == ''">$(UserProfile)\.nuget\$(NuGetPublishVersion)\</NuGetPublishPath>
+		
+		<NuGetPublishCmd Condition="'$(NuGetPublishType)' == '' AND '$(NuGetPublishLocation.SubString(0, 4))' != 'http'">add</NuGetPublishCmd>
+		<NuGetPublishCmd Condition="'$(NuGetPublishType)' == '' AND '$(NuGetPublishLocation.SubString(0, 4))' == 'http'">push</NuGetPublishCmd>
+		<NuGetPublishCmd Condition="'$(NuGetPublishType)' != '' AND '$(NuGetPublishType)' != 'remote'">add</NuGetPublishCmd>
+		<NuGetPublishCmd Condition="'$(NuGetPublishType)' != '' AND '$(NuGetPublishType)' == 'remote'">push</NuGetPublishCmd>
+
+		<NuGetPublishSkipDuplicate Condition="'$(NuGetPublishCmd)' == 'push' AND '$(NuGetPublishSkipDuplicate)' == 'true'">-SkipDuplicate</NuGetPublishSkipDuplicate>
+		<NuGetPublishSkipDuplicate Condition="'$(NuGetPublishCmd)' != 'push' OR '$(NuGetPublishSkipDuplicate)' != 'true'"></NuGetPublishSkipDuplicate>
+	</PropertyGroup>
+	<Target Name="PublishPack" AfterTargets="Pack">
+		<DownloadFile Condition="!Exists('$(NuGetPublishPath)nuget.exe') AND '$(NuGetPublishLocation)' != ''" SourceUrl="https://dist.nuget.org/win-x86-commandline/v$(NuGetPublishVersion)/nuget.exe" DestinationFolder="$(NuGetPublishPath)" />
+		<Exec Command="&quot;$(NuGetPublishPath)nuget.exe&quot; $(NuGetPublishCmd) $(NuGetPublishSkipDuplicate) &quot;$(PackageOutputAbsolutePath)$(PackageId).$(PackageVersion).nupkg&quot; -Source &quot;$(NuGetPublishLocation.TrimEnd('\'))&quot;" Condition="'$(NuGetPublishLocation)' != ''" />
+		<Warning Text="Skipping NuGet publish, NuGetPublishLocation is not set in project file." Condition="'$(NuGetPublishLocation)' == ''" />
+	</Target>
+	
 
 </Project>
