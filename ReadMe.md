@@ -24,8 +24,9 @@ To use the package, you need to add the [SS.NuGet.Publish](https://www.nuget.org
 
 - If not already cached, it will download a copy of nuget.exe from https://dist.nuget.org/win-x86-commandline/v{NuGetPublishVersion}/nuget.exe into `NuGetPublishPath`
 - Publish
-  - If `NuGetPublishType = remote` it executes nuget.exe using *push* command to `NuGetPublishLocation` as the source
-  - If `NuGetPublishType = local` it executes nuget.exe using *add* command to `NuGetPublishLocation` as the source
+  - If `NuGetPublishType = remote` OR `NuGetPublishLocation` starts with http, it executes nuget.exe using *push* command to `NuGetPublishLocation` as the source
+  - If `NuGetPublishType = local` OR `NuGetPublishLocation` does not start with http, it executes nuget.exe using *add* command to `NuGetPublishLocation` as the source
+  - Manually setting `NuGetPublishType` disables the auto-detection of publishing type.
   
 > **Note:**  
 > If `NuGetPublishLocation` is not defined, no publish is attempted.  
